@@ -15,10 +15,6 @@
 
     <!-- Tailwind - Script -->
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="font-Outfit">
-
-    
 
     <script>
         tailwind.config = {
@@ -26,6 +22,7 @@
             extend: {
               colors: {
                 clifford: '#da373d',
+                black_2: '#080808',
               },
               fontFamily: {
                 Outfit: "'Outfit', sans-serif",
@@ -34,5 +31,33 @@
           }
         }
     </script>
+</head>
+<body class="font-Outfit text-black_2 bg-[#F4F5F7]">
+
+    <main class="h-full py-28">
+        <section class="max-w-[450px] mx-auto px-6">
+            <div class="text-center">
+                <img class="mx-auto" src="images/payoo-logo.png" alt="image">
+            </div>
+            <div class="login-form bg-white p-8 rounded-3xl">
+                <form>
+                    <div class="form-group mb-4">
+                        <label class="text-base font-medium block mb-3" for="mobile-number">Mobile Number</label>
+                        <input class="block w-full text-base font-light h-[52px] px-5 bg-[#F4F5F7] rounded-[32px]" type="tel" name="tel" id="mobile-number" placeholder="Enter your number" required>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label class="text-base font-medium block mb-3" for="pin-number">4 Digit Pin</label>
+                        <input class="block w-full text-base font-light h-[52px] px-5 bg-[#F4F5F7] rounded-[32px]" type="password" name="password" id="pin-number" placeholder="Enter 4 Digit Pin" required>
+                    </div>
+                    <button id="login-btn" class="btn w-full text-center text-xl font-semibold text-white bg-[#0874F2] rounded-[32px] pb-1 h-[52px] hover:bg-blue-700 border-0">Login</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    
+
+    
+    <script src="js/utilities.js"></script>
+    <script src="js/login.js"></script>
 </body>
 </html>

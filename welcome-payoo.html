@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payoo - Project</title>
+
+    <!-- Google - Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Daisy - UI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Tailwind - Script -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                clifford: '#da373d',
+                black_2: '#080808',
+                gray: '#08080880',
+              },
+              fontFamily: {
+                Outfit: "'Outfit', sans-serif",
+              }
+            }
+          }
+        }
+    </script>
+</head>
+<body class="font-Outfit text-black_2 bg-[#F4F5F7]">
+    
+
+    <main>
+        <div class="max-w-[450px] mx-auto">
+            <div class="flex justify-between items-center py-3">
+                <div class="balance-logo flex gap-2 items-center">
+                    <a href="#"><img src="images/balance-logo.png" alt="image"></a>
+                    <div class="account-balance-div">
+                        <h3 class="text-[18px] font-extrabold">$<span>45000</span></h3>
+                        <p class="text-sm text-[gray] font-normal">Available Balance</p>
+                    </div>
+                </div>
+                <button id="logout-btn" class="border border-[gray] rounded-lg px-3 text-sm font-normal text-[gray] flex items-center gap-2 h-[38px]"><p><img src="images/log-out.png" alt="image"></p> Logout</button>
+            </div>
+            <hr class="bg-[gray] text-[gray] opacity-50 mb-8">
+        </div>
+    </main>
+    
+
+    
+    <script src="js/utilities.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>
