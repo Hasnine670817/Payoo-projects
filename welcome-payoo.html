@@ -18,43 +18,143 @@
 
     <script>
         tailwind.config = {
-          theme: {
-            extend: {
-              colors: {
-                clifford: '#da373d',
-                black_2: '#080808',
-                gray: '#08080880',
-              },
-              fontFamily: {
-                Outfit: "'Outfit', sans-serif",
-              }
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                        black_2: '#080808',
+                        gray: '#08080880',
+                        gray_2: '#0808081A',
+                    },
+                    fontFamily: {
+                        Outfit: "'Outfit', sans-serif",
+                    }
+                }
             }
-          }
         }
     </script>
+
+    <style>
+        button.active {
+            border: 1px solid #0874F2;
+            color: #0874F2;
+            font-weight: 600;
+        }
+    </style>
 </head>
 <body class="font-Outfit text-black_2 bg-[#F4F5F7]">
     
 
     <main>
-        <div class="max-w-[450px] mx-auto">
+        <div class="max-w-[450px] mx-auto px-6">
             <div class="flex justify-between items-center py-3">
                 <div class="balance-logo flex gap-2 items-center">
                     <a href="#"><img src="images/balance-logo.png" alt="image"></a>
                     <div class="account-balance-div">
-                        <h3 class="text-[18px] font-extrabold">$<span>45000</span></h3>
+                        <h3 class="text-[18px] font-extrabold">$<span id="total-amount">45000</span></h3>
                         <p class="text-sm text-[gray] font-normal">Available Balance</p>
                     </div>
                 </div>
-                <button id="logout-btn" class="border border-[gray] rounded-lg px-3 text-sm font-normal text-[gray] flex items-center gap-2 h-[38px]"><p><img src="images/log-out.png" alt="image"></p> Logout</button>
+                <button id="logout-btn" class="border border-[#0808081A] rounded-lg px-3 text-sm font-normal text-[gray] flex items-center gap-2 h-[38px]"><p><img src="images/log-out.png" alt="image"></p> Logout</button>
             </div>
-            <hr class="bg-[gray] text-[gray] opacity-50 mb-8">
+            <hr class="text-[#0808081A] mb-8">
+            <div class="welcome-area">
+                <h2 class="text-2xl font-bold">🔥 Welcome to Payooo!</h2>
+                <p class="text-base font-normal text-[gray] mt-3">Enjoy easy and convenient financial services with us. Cashout charge is low and </p>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4 my-6">
+                <button id="added-money-button" class="border border-[#0808081A] rounded-xl py-5 text-sm hover:bg-slate-600 hover:text-white transition-all duration-300 font-normal text-[#080808B2]">
+                    <img class="mx-auto mb-2" src="images/add-monry.png" alt="image">
+                    Add Money
+                </button>
+                <button id="cash-out-button" class="border border-[#0808081A] rounded-xl py-5 text-sm hover:bg-slate-600 hover:text-white transition-all duration-300 font-normal text-[#080808B2]">
+                    <img class="mx-auto mb-2" src="images/cashout.png" alt="image">
+                    Cashout
+                </button>
+                <button class="border border-[#0808081A] rounded-xl py-5 text-sm hover:bg-slate-600 hover:text-white transition-all duration-300 font-normal text-[#080808B2]">
+                    <img class="mx-auto mb-2" src="images/transfer-money.png" alt="image">
+                    Transfer Money
+                </button>
+                <button class="border border-[#0808081A] rounded-xl py-5 text-sm hover:bg-slate-600 hover:text-white transition-all duration-300 font-normal text-[#080808B2]">
+                    <img class="mx-auto mb-2" src="images/get-bonus.png" alt="image">
+                    Get Bonus
+                </button>
+                <button class="border border-[#0808081A] rounded-xl py-5 text-sm hover:bg-slate-600 hover:text-white transition-all duration-300 font-normal text-[#080808B2]">
+                    <img class="mx-auto mb-2" src="images/pay-bill.png" alt="image">
+                    Pay Bill
+                </button>
+                <button id="transaction-button" class="border border-[#0808081A] rounded-xl py-5 text-sm hover:bg-slate-600 hover:text-white transition-all duration-300 font-normal text-[#080808B2]">
+                    <img class="mx-auto mb-2" src="images/transaction.png" alt="image">
+                    Transactions
+                </button>
+            </div>
+
+            <!-- add - money -->
+            <div id="add-money">
+                <h2 class="text-[18px] font-semibold mb-4">Add Money</h2>
+                <div class="login-form bg-white p-8 rounded-3xl">
+                    <form>
+                        <div class="form-group mb-4">
+                            <label class="text-base font-medium block mb-3" for="select-bank">Select A Bank</label>
+                            <select name="select" id="select-bank" class="block w-full text-base font-light h-[52px] px-5 bg-[#F4F5F7] rounded-[32px]">
+                                <option value="0">Select a bank</option>
+                                <option value="1">Jamuna</option>
+                                <option value="2">Islami</option>
+                                <option value="3">Dach Bangla</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label class="text-base font-medium block mb-3" for="account-number">Bank Account Number</label>
+                            <input class="block w-full text-base font-light h-[52px] px-5 bg-[#F4F5F7] rounded-[32px]" type="tel" name="tel" id="account-number" placeholder="Enter 11 digit account number" required>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label class="text-base font-medium block mb-3" for="add-amount">Amount to Add</label>
+                            <input class="block w-full text-base font-light h-[52px] px-5 bg-[#F4F5F7] rounded-[32px]" type="tel" name="tel" id="add-amount" placeholder="Add Amount to withdraw" required>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label class="text-base font-medium block mb-3" for="pin-number-value">Pin Number</label>
+                            <input class="block w-full text-base font-light h-[52px] px-5 bg-[#F4F5F7] rounded-[32px]" type="password" name="password" id="pin-number-value" placeholder="Enter 4 Digit Pin Number" required>
+                        </div>
+                        <button id="add-money-btn" class="btn w-full text-center text-xl font-semibold text-white bg-[#0874F2] rounded-[32px] pb-1 h-[52px] hover:bg-blue-700 border-0">Add Money</button>
+                    </form>
+                </div>
+            </div>
+
+
+            <!-- add - money -->
+            <div id="cash-out" class="hidden">
+                <h2 class="text-[18px] font-semibold mb-4">Cash Out</h2>
+                <div class="login-form bg-white p-8 rounded-3xl">
+                    <form>
+                        <div class="form-group mb-4">
+                            <label class="text-base font-medium block mb-3" for="agent-number">Agent Number</label>
+                            <input class="block w-full text-base font-light h-[52px] px-5 bg-[#F4F5F7] rounded-[32px]" type="tel" name="tel" id="agent-number" placeholder="Enter 11 digit number" required>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label class="text-base font-medium block mb-3" for="amount-input">Amount</label>
+                            <input class="block w-full text-base font-light h-[52px] px-5 bg-[#F4F5F7] rounded-[32px]" type="tel" name="tel" id="amount-input" placeholder="Enter amount to withdraw" required>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label class="text-base font-medium block mb-3" for="pin-number-value">Pin Number</label>
+                            <input class="block w-full text-base font-light h-[52px] px-5 bg-[#F4F5F7] rounded-[32px]" type="password" name="password" id="pin-number-value" placeholder="Enter 4 digit pin number" required>
+                        </div>
+                        <button id="withdraw-money-btn" class="btn w-full text-center text-xl font-semibold text-white bg-[#0874F2] rounded-[32px] pb-1 h-[52px] hover:bg-blue-700 border-0">Withdraw Money</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Transaction -->
+            <div id="transaction" class="hidden">
+                <h2 class="text-[18px] font-semibold mb-4">Transaction History</h2>
+                <div id="transaction-container"></div>
+            </div>
         </div>
     </main>
     
 
     
     <script src="js/utilities.js"></script>
-    <script src="js/login.js"></script>
+    <script src="js/scripts.js"></script>
 </body>
 </html>
